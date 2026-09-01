@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>South Town Academy | Coming Soon</title>
+
+  <meta
+    name="description"
+    content="South Town Academy is an interactive creative career training experience currently in development. Coming soon."
+  >
+
+  <meta name="author" content="South Town Academy">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="South Town Academy | Coming Soon">
+
+  <meta
+    property="og:description"
+    content="A new kind of creative career training experience is coming."
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://southtownacademy.com">
+
+  <style>
+    :root {
+      --bg: #03080d;
+      --bg-soft: #07121d;
+      --blue: #4fa7ff;
+      --blue-light: #8bc9ff;
+      --white: #ffffff;
+      --text: #cad6e0;
+      --muted: #8797a5;
+      --border: rgba(255, 255, 255, 0.10);
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      overflow: hidden;
+
+      padding: 40px 20px;
+
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(48, 139, 230, 0.14),
+          transparent 34%
+        ),
+        linear-gradient(
+          180deg,
+          #07111c 0%,
+          #020507 100%
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 20%,
+          rgba(0, 0, 0, 0.42) 100%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      z-index: 1;
+
+      width: min(760px, 88vw);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      animation: reveal 1.4s ease both;
+    }
+
+    .hero-logo-wrap::before {
+      content: "";
+
+      position: absolute;
+
+      width: 68%;
+      height: 68%;
+
+      border-radius: 50%;
+
+      background: rgba(74, 162, 255, 0.15);
+
+      filter: blur(95px);
+
+      z-index: -1;
+    }
+
+    .hero-logo {
+      width: 100%;
+      height: auto;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 28px 70px
+          rgba(0, 0, 0, 0.45)
+        );
+    }
+
+    .scroll-indicator {
+      position: absolute;
+
+      left: 50%;
+      bottom: 28px;
+
+      transform: translateX(-50%);
+
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 9px;
+
+      color: rgba(255, 255, 255, 0.55);
+
+      font-size: 0.63rem;
+      font-weight: 800;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 34px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.65),
+          transparent
+        );
+    }
+
+    .intro-section {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 120px 20px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(79, 167, 255, 0.10),
+          transparent 30%
+        ),
+        var(--bg-soft);
+    }
+
+    .intro-inner {
+      width: min(var(--max), 100%);
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+
+      color: var(--blue-light);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+
+      letter-spacing: 0.24em;
+
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      color: var(--white);
+
+      font-size: clamp(
+        3rem,
+        8vw,
+        6.8rem
+      );
+
+      line-height: 0.96;
+
+      letter-spacing: -0.055em;
+    }
+
+    .highlight {
+      display: block;
+
+      margin-top: 8px;
+
+      color: var(--blue-light);
+    }
+
+    .intro-copy {
+      max-width: 700px;
+
+      margin: 34px auto 0;
+
+      color: var(--text);
+
+      font-size: clamp(
+        1rem,
+        2vw,
+        1.2rem
+      );
+
+      line-height: 1.8;
+    }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 12px;
+
+      margin-top: 42px;
+
+      padding: 14px 20px;
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+
+      color: var(--white);
+
+      font-size: 0.76rem;
+      font-weight: 800;
+
+      letter-spacing: 0.22em;
+
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--blue);
+
+      box-shadow:
+        0 0 16px
+        rgba(79, 167, 255, 0.8);
+    }
+
+    footer {
+      padding: 34px 20px;
+
+      border-top: 1px solid var(--border);
+
+      background: #020507;
+    }
+
+    .footer-inner {
+      width: min(var(--max), 100%);
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      color: var(--muted);
+
+      font-size: 0.76rem;
+    }
+
+    .production {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: scale(0.975);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero-logo-wrap {
+        width: 94vw;
+      }
+
+      .intro-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+
+      h1 {
+        font-size: clamp(
+          2.8rem,
+          14vw,
+          4.6rem
+        );
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <section class="hero" aria-label="South Town Academy">
+
+      <div class="hero-logo-wrap">
+
+        <img
+          class="hero-logo"
+          src="SouthTownAcademymobile.jpg"
+          alt="South Town Academy"
+        >
+
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        Scroll
+        <span class="scroll-line"></span>
+      </div>
+
+    </section>
+
+
+    <section class="intro-section">
+
+      <div class="intro-inner">
+
+        <p class="eyebrow">
+          Currently In Development
+        </p>
+
+        <h1>
+          A new way to prepare
+          <span class="highlight">
+            for creative careers.
+          </span>
+        </h1>
+
+        <p class="intro-copy">
+          South Town Academy is an interactive learning experience
+          being developed to help aspiring creatives build practical
+          skills and prepare for real-world opportunities.
+        </p>
+
+        <div class="coming-soon">
+          <span class="dot" aria-hidden="true"></span>
+          Coming Soon
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+        © <span id="year"></span> South Town Academy
+      </div>
+
+      <div class="production">
+        A South Town Productions project.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
