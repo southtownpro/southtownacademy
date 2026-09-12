@@ -29,6 +29,7 @@
     :root {
       --bg: #03080d;
       --bg-soft: #07121d;
+      --bg-lighter: #0a1825;
       --blue: #4fa7ff;
       --blue-light: #8bc9ff;
       --white: #ffffff;
@@ -67,65 +68,68 @@
       max-width: 100%;
     }
 
+    /* =========================================================
+       HERO
+       ========================================================= */
+
     .hero {
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+      min-height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      position: relative;
+      overflow: hidden;
 
-  background: #000;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+      background: #000;
+    }
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.05),
-      rgba(0, 0, 0, 0.25)
-    );
+    .hero::before {
+      content: "";
 
-  pointer-events: none;
-  z-index: 1;
-}
+      position: absolute;
+      inset: 0;
 
-.hero-logo-wrap {
-  position: absolute;
-  inset: 0;
+      z-index: 1;
 
-  width: 100%;
-  height: 100%;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.02),
+          rgba(0, 0, 0, 0.18)
+        );
 
-  z-index: 0;
+      pointer-events: none;
+    }
 
-  animation: reveal 1.4s ease both;
-}
+    .hero-logo-wrap {
+      position: absolute;
+      inset: 0;
 
-.hero-logo-wrap::before {
-  display: none;
-}
+      width: 100%;
+      height: 100%;
 
-.hero-logo {
-  width: 100%;
-  height: 100%;
+      z-index: 0;
 
-  object-fit: cover;
-  object-position: center;
+      animation: reveal 1.4s ease both;
+    }
 
-  display: block;
-}
+    .hero-logo {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+    }
 
     .scroll-indicator {
       position: absolute;
 
       left: 50%;
-      bottom: 28px;
+      bottom: 26px;
 
       transform: translateX(-50%);
 
@@ -137,7 +141,7 @@
 
       gap: 9px;
 
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.62);
 
       font-size: 0.63rem;
       font-weight: 800;
@@ -158,6 +162,10 @@
           transparent
         );
     }
+
+    /* =========================================================
+       INTRO
+       ========================================================= */
 
     .intro-section {
       min-height: 100vh;
@@ -275,6 +283,157 @@
         rgba(79, 167, 255, 0.8);
     }
 
+    /* =========================================================
+       UPDATES / NEWSLETTER
+       ========================================================= */
+
+    .updates-section {
+      padding: 125px 20px;
+
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(79, 167, 255, 0.12),
+          transparent 32%
+        ),
+        var(--bg);
+    }
+
+    .updates-inner {
+      width: min(820px, 100%);
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .updates-card {
+      position: relative;
+
+      padding: 65px 55px;
+
+      border: 1px solid rgba(79, 167, 255, 0.20);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(13, 32, 49, 0.96),
+          rgba(5, 15, 24, 0.96)
+        );
+
+      box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.32);
+
+      overflow: hidden;
+    }
+
+    .updates-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: -180px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background: rgba(79, 167, 255, 0.12);
+
+      filter: blur(70px);
+
+      pointer-events: none;
+    }
+
+    .updates-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .updates-card h2 {
+      max-width: 670px;
+
+      margin: 0 auto;
+
+      color: var(--white);
+
+      font-size: clamp(
+        2.3rem,
+        6vw,
+        4.4rem
+      );
+
+      line-height: 1;
+
+      letter-spacing: -0.045em;
+    }
+
+    .updates-copy {
+      max-width: 620px;
+
+      margin: 24px auto 0;
+
+      color: var(--text);
+
+      font-size: 1.05rem;
+
+      line-height: 1.75;
+    }
+
+    .signup-wrap {
+      width: min(540px, 100%);
+
+      margin: 38px auto 0;
+    }
+
+    .substack-frame {
+      width: 100%;
+      height: 150px;
+
+      border: 0;
+
+      background: transparent;
+    }
+
+    .privacy-note {
+      margin: 18px auto 0;
+
+      color: var(--muted);
+
+      font-size: 0.78rem;
+
+      line-height: 1.6;
+    }
+
+    .substack-link {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      color: var(--blue-light);
+
+      font-size: 0.78rem;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    .substack-link:hover,
+    .substack-link:focus {
+      text-decoration: underline;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
     footer {
       padding: 34px 20px;
 
@@ -307,7 +466,7 @@
     @keyframes reveal {
       from {
         opacity: 0;
-        transform: scale(0.975);
+        transform: scale(1.02);
       }
 
       to {
@@ -317,14 +476,6 @@
     }
 
     @media (max-width: 650px) {
-      .hero {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .hero-logo-wrap {
-        width: 94vw;
-      }
 
       .intro-section {
         padding-top: 90px;
@@ -339,6 +490,22 @@
         );
       }
 
+      .updates-section {
+        padding: 85px 16px;
+      }
+
+      .updates-card {
+        padding: 48px 22px;
+      }
+
+      .updates-card h2 {
+        font-size: clamp(
+          2.3rem,
+          11vw,
+          3.5rem
+        );
+      }
+
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -346,6 +513,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
@@ -361,7 +529,14 @@
 
   <main>
 
-    <section class="hero" aria-label="South Town Academy">
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+      class="hero"
+      aria-label="South Town Academy"
+    >
 
       <div class="hero-logo-wrap">
 
@@ -373,13 +548,20 @@
 
       </div>
 
-      <div class="scroll-indicator" aria-hidden="true">
+      <div
+        class="scroll-indicator"
+        aria-hidden="true"
+      >
         Scroll
         <span class="scroll-line"></span>
       </div>
 
     </section>
 
+
+    <!-- =====================================================
+         COMING SOON
+         ===================================================== -->
 
     <section class="intro-section">
 
@@ -397,14 +579,78 @@
         </h1>
 
         <p class="intro-copy">
-          South Town Academy is an interactive learning experience
-          being developed to help aspiring creatives build practical
-          skills and prepare for real-world opportunities.
+          South Town Academy is an interactive learning
+          experience being developed to help aspiring
+          creatives build practical skills and prepare
+          for real-world opportunities.
         </p>
 
         <div class="coming-soon">
-          <span class="dot" aria-hidden="true"></span>
+
+          <span
+            class="dot"
+            aria-hidden="true"
+          ></span>
+
           Coming Soon
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EMAIL UPDATES
+         ===================================================== -->
+
+    <section class="updates-section">
+
+      <div class="updates-inner">
+
+        <div class="updates-card">
+
+          <p class="eyebrow">
+            Stay Updated
+          </p>
+
+          <h2>
+            Be there when the next chapter begins.
+          </h2>
+
+          <p class="updates-copy">
+            South Town Academy is still taking shape.
+            Sign up for occasional updates, announcements,
+            and news as we get closer to launch.
+          </p>
+
+          <div class="signup-wrap">
+
+            <iframe
+              class="substack-frame"
+              src="https://southtownacademy.substack.com/embed"
+              title="Subscribe to South Town Academy updates"
+              frameborder="0"
+              scrolling="no"
+            ></iframe>
+
+          </div>
+
+          <p class="privacy-note">
+            No spam. Just meaningful South Town Academy
+            updates. Unsubscribe anytime.
+          </p>
+
+          <a
+            class="substack-link"
+            href="https://southtownacademy.substack.com/subscribe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Having trouble with the form? Subscribe here.
+          </a>
+
         </div>
 
       </div>
@@ -414,12 +660,17 @@
   </main>
 
 
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
   <footer>
 
     <div class="footer-inner">
 
       <div>
-        © <span id="year"></span> South Town Academy
+        © <span id="year"></span>
+        South Town Academy
       </div>
 
       <div class="production">
@@ -432,8 +683,12 @@
 
 
   <script>
-    document.getElementById("year").textContent =
+
+    document
+      .getElementById("year")
+      .textContent =
       new Date().getFullYear();
+
   </script>
 
 </body>
